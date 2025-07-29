@@ -36,4 +36,4 @@ The script will produce two output files:
 -   **`benchmark_results.csv`**: A raw CSV file containing detailed performance metrics for each model and prompt.
 -   **`ranked_benchmark_results.csv`**: A summarized CSV file with the models ranked based on a composite score of quality, TPS, and latency.
 
-The ranked results will also be printed to the console at the end of the benchmark.
+![dashboard](asset/dashboard.gif)
