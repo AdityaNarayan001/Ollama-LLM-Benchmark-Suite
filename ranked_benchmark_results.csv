@@ -1,4 +1,4 @@
 Model,LLM Quality Score (1-10),Tokens/sec,Latency (ms/token),Quantized,score,Rank
-gemma:2b,10.0,38.53,25.95,False,5.5,1
-qwen2.5:3b,10.0,16.87,59.27,True,5.218917571871386,2
-llama3.1:8b,10.0,10.13,98.73,False,5.131441213612726,3
+gemma:2b,10.0,39.33,25.43,False,5.5,1
+qwen2.5:3b,10.0,21.9,45.67,True,5.278412188924725,2
+llama3.1:8b,10.0,9.94,100.64,False,5.126356550722212,3

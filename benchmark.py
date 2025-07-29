@@ -69,7 +69,7 @@ def benchmark_model(model_name):
         print(f"Error benchmarking {model_name}: {e}")
         print("-" * 60)
 
-if __name__ == "__main__":
+def run_benchmark():
     print("Starting LLM Benchmark with Ollama...")
     print("This script benchmarks several LLMs and logs performance + system resource usage.")
     print(f"Results will be saved to '{CSV_FILE}'.\nEnsure 'ollama' is running.")
@@ -95,3 +95,6 @@ if __name__ == "__main__":
 
     summarize_results(CSV_FILE)
     print(f"\nBenchmark complete. Results saved in {CSV_FILE}.")
+
+if __name__ == "__main__":
+    run_benchmark()

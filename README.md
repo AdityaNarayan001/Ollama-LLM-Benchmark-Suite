@@ -16,17 +16,18 @@ The project is organized into the following files:
 1.  **Install Dependencies**:
     Make sure you have the required Python libraries installed. You can install them using pip:
     ```bash
-    pip install ollama pandas psutil
+    pip install ollama pandas psutil streamlit plotly
     ```
 
 2.  **Ensure Ollama is Running**:
     This script requires an active Ollama instance to run the benchmarks. Make sure the Ollama service is running in the background.
 
-3.  **Execute the Benchmark**:
-    Run the main benchmark script from your terminal:
+3.  **Run the Application**:
+    You can now run the Streamlit dashboard directly. If the benchmark has not been run before, the dashboard will provide an option to start it.
     ```bash
-    python3 benchmark.py
+    streamlit run dashboard.py
     ```
+    This single command is all you need to either view existing results or run a new benchmark.
 
 ## Output
 
