@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from benchmark import run_benchmark
+import subprocess
 import os
+import time
 
 st.set_page_config(layout="wide")
 
@@ -84,9 +85,32 @@ if ranked_df is not None and raw_df is not None:
     st.header("Raw Benchmark Data")
     st.dataframe(raw_df)
 else:
-    st.warning("Benchmark results not found.")
-    if st.button("Run Benchmark"):
-        with st.spinner("Running benchmark... This may take a while."):
-            run_benchmark()
-        st.success("Benchmark complete! Refresh the page to see the results.")
+    st.warning("Benchmark results not found. Please run the benchmark to generate results.")
+if st.button("Run Benchmark"):
+    st.info("Starting benchmark... This may take a while. Logs will appear below.")
+    log_area = st.empty()
+    log_content = ""
+
+    process = subprocess.Popen(
+        ["python", "-u", "benchmark.py"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        bufsize=1,
+        universal_newlines=True,
+    )
+
+    while True:
+        output = process.stdout.readline()
+        if output == "" and process.poll() is not None:
+            break
+        if output:
+            log_content += output
+            log_area.code(log_content)
+            time.sleep(0.1) 
+
+    if process.returncode == 0:
+        st.success("Benchmark complete!")
         st.rerun()
+    else:
+        st.error("Benchmark failed. Check the logs above for details.")
